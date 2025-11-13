@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Search, TrendingUp, Users, Zap } from "lucide-react";
+import { Search, Zap, Plus } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
 
 export const Hero = () => {
@@ -38,10 +39,12 @@ export const Hero = () => {
               <Search className="h-5 w-5" />
               Explore Startups
             </Button>
-            <Button variant="outline" size="lg" className="gap-2 bg-card/80 backdrop-blur-sm">
-              <Users className="h-5 w-5" />
-              Join as Investor
-            </Button>
+            <Link to="/submit-startup">
+              <Button variant="outline" size="lg" className="gap-2 bg-card/80 backdrop-blur-sm">
+                <Plus className="h-5 w-5" />
+                Submit Your Idea
+              </Button>
+            </Link>
           </div>
           
           {/* Stats */}

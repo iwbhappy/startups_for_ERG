@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Search, TrendingUp } from "lucide-react";
+import { TrendingUp, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const Navigation = () => {
@@ -22,11 +22,14 @@ export const Navigation = () => {
           <Button variant="ghost" size="sm">
             For Investors
           </Button>
-          <Button variant="outline" size="sm">
-            Sign In
-          </Button>
+          <Link to="/submit-startup">
+            <Button variant="outline" size="sm" className="gap-2">
+              <Plus className="h-4 w-4" />
+              Submit Idea
+            </Button>
+          </Link>
           <Button variant="default" size="sm">
-            Get Started
+            Sign In
           </Button>
         </div>
       </div>

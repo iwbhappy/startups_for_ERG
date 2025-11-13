@@ -18,7 +18,7 @@ export interface Startup {
   highlights: string[];
 }
 
-export const startups: Startup[] = [
+const defaultStartups: Startup[] = [
   {
     id: "1",
     name: "NeuralSync AI",
@@ -140,3 +140,14 @@ export const startups: Startup[] = [
     ]
   }
 ];
+
+// Function to get all startups (default + user-submitted)
+export const getAllStartups = (): Startup[] => {
+  if (typeof window === "undefined") return defaultStartups;
+  
+  const userStartups = JSON.parse(localStorage.getItem("userStartups") || "[]");
+  return [...userStartups, ...defaultStartups];
+};
+
+// Export default startups for backward compatibility
+export const startups = defaultStartups;

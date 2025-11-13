@@ -4,11 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, TrendingUp, Users, Target, CheckCircle2, Calendar } from "lucide-react";
-import { startups } from "@/data/startups";
+import { getAllStartups } from "@/data/startups";
 
 const StartupDetail = () => {
   const { id } = useParams();
-  const startup = startups.find((s) => s.id === id);
+  const allStartups = getAllStartups();
+  const startup = allStartups.find((s) => s.id === id);
 
   if (!startup) {
     return (

@@ -1,16 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { SearchFilters } from "@/components/SearchFilters";
 import { StartupCard } from "@/components/StartupCard";
-import { startups } from "@/data/startups";
+import { getAllStartups } from "@/data/startups";
 
 const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [allStartups, setAllStartups] = useState(getAllStartups());
+
+  // Refresh startups when component mounts or localStorage changes
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setAllStartups(getAllStartups());
+    };
+    
+    window.addEventListener("storage", handleStorageChange);
+    // Also refresh on focus in case user submitted in another tab
+    window.addEventListener("focus", handleStorageChange);
+    
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+      window.removeEventListener("focus", handleStorageChange);
+    };
+  }, []);
 
   const filteredStartups = selectedCategory === "All" 
-    ? startups 
-    : startups.filter(startup => startup.category === selectedCategory);
+    ? allStartups 
+    : allStartups.filter(startup => startup.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-background">
