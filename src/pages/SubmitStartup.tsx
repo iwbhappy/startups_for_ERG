@@ -30,7 +30,7 @@ const SubmitStartup = () => {
     
     // Validation
     if (!formData.name || !formData.description || !formData.category || !formData.fundingGoal) {
-      toast.error("Please fill in all required fields");
+      toast.error("Пожалуйста, заполните все обязательные поля");
       return;
     }
 
@@ -49,7 +49,7 @@ const SubmitStartup = () => {
       backers: 0,
       image: "/placeholder.svg", // Default placeholder image
       founder: formData.founder || "Anonymous",
-      founderTitle: formData.founderTitle || "Founder",
+  founderTitle: formData.founderTitle || "Основатель",
       timeline: formData.timeline || "Coming soon",
       highlights: formData.highlights.filter(h => h.trim() !== ""),
     };
@@ -58,7 +58,7 @@ const SubmitStartup = () => {
     existingStartups.push(newStartup);
     localStorage.setItem("userStartups", JSON.stringify(existingStartups));
 
-    toast.success("Your startup has been submitted successfully!");
+  toast.success("Ваш стартап успешно отправлен!");
     navigate("/");
   };
 
@@ -75,7 +75,7 @@ const SubmitStartup = () => {
         <div className="container mx-auto px-4 py-8 max-w-3xl">
           <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors">
             <ArrowLeft className="h-4 w-4" />
-            Back to home
+                    Назад на главную
           </Link>
 
           <div className="mb-8">
@@ -84,8 +84,8 @@ const SubmitStartup = () => {
                 <Rocket className="h-6 w-6 text-primary-foreground" />
               </div>
               <div>
-                <h1 className="text-4xl font-bold">Submit Your Startup</h1>
-                <p className="text-muted-foreground">Share your vision with potential investors</p>
+                <h1 className="text-4xl font-bold">Отправить ваш стартап</h1>
+                <p className="text-muted-foreground">Поделитесь своим видением с потенциальными инвесторами</p>
               </div>
             </div>
           </div>
@@ -94,15 +94,15 @@ const SubmitStartup = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Basic Information */}
               <div className="space-y-4">
-                <h2 className="text-2xl font-bold">Basic Information</h2>
+                <h2 className="text-2xl font-bold">Основная информация</h2>
                 
                 <div className="space-y-2">
                   <Label htmlFor="name">
-                    Startup Name <span className="text-destructive">*</span>
+                    Название стартапа <span className="text-destructive">*</span>
                   </Label>
                   <Input
                     id="name"
-                    placeholder="e.g., NeuralSync AI"
+                    placeholder="например, NeuralSync AI"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="bg-background"
@@ -112,7 +112,7 @@ const SubmitStartup = () => {
 
                 <div className="space-y-2">
                   <Label htmlFor="category">
-                    Category <span className="text-destructive">*</span>
+                    Категория <span className="text-destructive">*</span>
                   </Label>
                   <Select
                     value={formData.category}
@@ -120,25 +120,25 @@ const SubmitStartup = () => {
                     required
                   >
                     <SelectTrigger className="bg-background">
-                      <SelectValue placeholder="Select a category" />
+                      <SelectValue placeholder="Выберите категорию" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="Technology">Technology</SelectItem>
-                      <SelectItem value="Healthcare">Healthcare</SelectItem>
-                      <SelectItem value="Green Energy">Green Energy</SelectItem>
-                      <SelectItem value="Finance">Finance</SelectItem>
-                      <SelectItem value="Education">Education</SelectItem>
+                      <SelectItem value="Technology">Технологии</SelectItem>
+                      <SelectItem value="Healthcare">Здравоохранение</SelectItem>
+                      <SelectItem value="Green Energy">Зеленая энергия</SelectItem>
+                      <SelectItem value="Finance">Финансы</SelectItem>
+                      <SelectItem value="Education">Образование</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="description">
-                    Short Description <span className="text-destructive">*</span>
+                    Краткое описание <span className="text-destructive">*</span>
                   </Label>
                   <Textarea
                     id="description"
-                    placeholder="A brief one-line description of your startup (max 150 characters)"
+                    placeholder="Краткое однострочное описание стартапа (макс. 150 символов)"
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                     className="bg-background"
@@ -149,10 +149,10 @@ const SubmitStartup = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="fullDescription">Full Description</Label>
+                  <Label htmlFor="fullDescription">Полное описание</Label>
                   <Textarea
                     id="fullDescription"
-                    placeholder="Tell investors more about your startup, your mission, and what makes you unique"
+                    placeholder="Расскажите инвесторам больше о вашем стартапе, вашей миссии и уникальных преимуществах"
                     value={formData.fullDescription}
                     onChange={(e) => setFormData({ ...formData, fullDescription: e.target.value })}
                     className="bg-background min-h-32"
@@ -162,16 +162,16 @@ const SubmitStartup = () => {
 
               {/* Funding Goal */}
               <div className="space-y-4 pt-6 border-t border-border">
-                <h2 className="text-2xl font-bold">Funding Goal</h2>
+                <h2 className="text-2xl font-bold">Цель финансирования</h2>
                 
                 <div className="space-y-2">
                   <Label htmlFor="fundingGoal">
-                    Target Amount (USD) <span className="text-destructive">*</span>
+                    Целевая сумма (USD) <span className="text-destructive">*</span>
                   </Label>
                   <Input
                     id="fundingGoal"
                     type="number"
-                    placeholder="e.g., 500000"
+                    placeholder="например, 500000"
                     value={formData.fundingGoal}
                     onChange={(e) => setFormData({ ...formData, fundingGoal: e.target.value })}
                     className="bg-background"
@@ -181,10 +181,10 @@ const SubmitStartup = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="timeline">Expected Timeline</Label>
+                  <Label htmlFor="timeline">Ожидаемые сроки</Label>
                   <Input
                     id="timeline"
-                    placeholder="e.g., Launch in Q2 2024"
+                    placeholder="например, запуск во 2 кв. 2024"
                     value={formData.timeline}
                     onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
                     className="bg-background"
@@ -194,13 +194,13 @@ const SubmitStartup = () => {
 
               {/* Founder Information */}
               <div className="space-y-4 pt-6 border-t border-border">
-                <h2 className="text-2xl font-bold">Founder Information</h2>
+                <h2 className="text-2xl font-bold">Информация об основателе</h2>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="founder">Your Name</Label>
+                  <Label htmlFor="founder">Ваше имя</Label>
                   <Input
                     id="founder"
-                    placeholder="e.g., Sarah Chen"
+                    placeholder="например, Sarah Chen"
                     value={formData.founder}
                     onChange={(e) => setFormData({ ...formData, founder: e.target.value })}
                     className="bg-background"
@@ -208,10 +208,10 @@ const SubmitStartup = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="founderTitle">Your Title</Label>
+                  <Label htmlFor="founderTitle">Ваша должность</Label>
                   <Input
                     id="founderTitle"
-                    placeholder="e.g., CEO & Co-founder"
+                    placeholder="например, CEO & Co-founder"
                     value={formData.founderTitle}
                     onChange={(e) => setFormData({ ...formData, founderTitle: e.target.value })}
                     className="bg-background"
@@ -221,17 +221,17 @@ const SubmitStartup = () => {
 
               {/* Key Highlights */}
               <div className="space-y-4 pt-6 border-t border-border">
-                <h2 className="text-2xl font-bold">Key Highlights</h2>
+                <h2 className="text-2xl font-bold">Ключевые достижения</h2>
                 <p className="text-muted-foreground text-sm">
-                  Add up to 4 key achievements or selling points
+                  Добавьте до 4 ключевых достижений или преимуществ
                 </p>
                 
                 {formData.highlights.map((highlight, index) => (
                   <div key={index} className="space-y-2">
-                    <Label htmlFor={`highlight-${index}`}>Highlight {index + 1}</Label>
+                    <Label htmlFor={`highlight-${index}`}>Достижение {index + 1}</Label>
                     <Input
                       id={`highlight-${index}`}
-                      placeholder={`e.g., ${index === 0 ? "10x faster than competitors" : index === 1 ? "Serving 15 Fortune 500 companies" : index === 2 ? "99.9% accuracy rate" : "Patents pending"}`}
+                      placeholder={`e.g., ${index === 0 ? "В 10 раз быстрее конкурентов" : index === 1 ? "Обслуживаем 15 компаний из Fortune 500" : index === 2 ? "Точность 99.9%" : "Патенты в процессе"}`}
                       value={highlight}
                       onChange={(e) => handleHighlightChange(index, e.target.value)}
                       className="bg-background"
@@ -244,10 +244,10 @@ const SubmitStartup = () => {
               <div className="pt-6 border-t border-border">
                 <Button type="submit" variant="hero" size="lg" className="w-full gap-2">
                   <Rocket className="h-5 w-5" />
-                  Submit Your Startup
+                  Отправить стартап
                 </Button>
                 <p className="text-xs text-muted-foreground text-center mt-4">
-                  By submitting, you agree to our terms and conditions
+                  Отправляя, вы соглашаетесь с нашими условиями использования
                 </p>
               </div>
             </form>

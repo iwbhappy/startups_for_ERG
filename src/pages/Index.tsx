@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
-import { SearchFilters } from "@/components/SearchFilters";
+import { SearchFilters, categories } from "@/components/SearchFilters";
 import { StartupCard } from "@/components/StartupCard";
 import { getAllStartups } from "@/data/startups";
 
@@ -42,10 +42,12 @@ const Index = () => {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-3xl font-bold mb-2">
-              {selectedCategory === "All" ? "All Startups" : `${selectedCategory} Startups`}
+              {selectedCategory === "All"
+                ? "Все стартапы"
+                : `${categories.find(c => c.value === selectedCategory)?.label || selectedCategory} стартапы`}
             </h2>
             <p className="text-muted-foreground">
-              {filteredStartups.length} innovative projects seeking funding
+              {filteredStartups.length} инновационных проектов ищут финансирование
             </p>
           </div>
         </div>
@@ -66,28 +68,28 @@ const Index = () => {
                 GoInvest
               </h3>
               <p className="text-muted-foreground mb-4">
-                Connecting visionary startups with forward-thinking investors to build the future.
+                Соединяем перспективные стартапы с дальновидными инвесторами, чтобы строить будущее.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">For Startups</h4>
+              <h4 className="font-semibold mb-4">Для стартапов</h4>
               <ul className="space-y-2 text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground transition-colors">List Your Startup</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">Success Stories</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">Resources</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Разместить стартап</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Истории успеха</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Ресурсы</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">For Investors</h4>
+              <h4 className="font-semibold mb-4">Для инвесторов</h4>
               <ul className="space-y-2 text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground transition-colors">How It Works</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">Investment Guide</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">FAQ</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Как это работает</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Руководство по инвестициям</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Часто задаваемые вопросы</a></li>
               </ul>
             </div>
           </div>
           <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground text-sm">
-            © 2024 GoInvest. All rights reserved.
+            © 2024 GoInvest. Все права защищены.
           </div>
         </div>
       </footer>

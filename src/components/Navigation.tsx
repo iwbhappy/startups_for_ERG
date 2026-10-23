@@ -16,20 +16,30 @@ export const Navigation = () => {
         </Link>
         
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm">
-            Explore Startups
-          </Button>
-          <Button variant="ghost" size="sm">
-            For Investors
-          </Button>
-          <Link to="/submit-startup">
-            <Button variant="outline" size="sm" className="gap-2">
+          {/* Hide long text links on small screens to prevent header overflow */}
+          <div className="hidden sm:flex items-center gap-4">
+            <Button variant="ghost" size="sm">
+              Исследовать стартапы
+            </Button>
+            <Button variant="ghost" size="sm">
+              Для инвесторов
+            </Button>
+          </div>
+
+          {/* Submit: show icon-only on extra-small, full button on small+ */}
+          <Link to="/submit-startup" aria-label="Submit startup">
+            <Button variant="outline" size="sm" className="gap-2 hidden sm:inline-flex">
               <Plus className="h-4 w-4" />
-              Submit Idea
+              Отправить идею
+            </Button>
+            <Button variant="outline" size="sm" className="gap-0 sm:hidden p-2" aria-hidden={false}>
+              <Plus className="h-4 w-4" />
             </Button>
           </Link>
+
+          {/* Sign in stays small; if overflow persists we can make it icon-only too */}
           <Button variant="default" size="sm">
-            Sign In
+            Войти
           </Button>
         </div>
       </div>

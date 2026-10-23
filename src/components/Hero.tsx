@@ -10,7 +10,7 @@ export const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage} 
-          alt="Entrepreneurs collaborating" 
+          alt="Предприниматели, сотрудничающие" 
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
@@ -21,28 +21,27 @@ export const Hero = () => {
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 border border-primary/20">
             <Zap className="h-4 w-4" />
-            <span className="text-sm font-medium">Connecting Innovation with Capital</span>
+            <span className="text-sm font-medium">Соединяем инновации с капиталом</span>
           </div>
           
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Fund the Future of
-            <span className="bg-gradient-hero bg-clip-text text-transparent"> Innovation</span>
+            Финансируйте будущее
+            <span className="bg-gradient-hero bg-clip-text text-transparent"> инноваций</span>
           </h1>
           
           <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-            Discover groundbreaking startups and connect with visionary investors. 
-            Build the next generation of industry-leading companies together.
+            Откройте прорывные стартапы и свяжитесь с дальновидными инвесторами. Вместе создадим следующее поколение лидирующих компаний.
           </p>
           
           <div className="flex flex-wrap gap-4 mb-12">
             <Button variant="hero" size="lg" className="gap-2">
               <Search className="h-5 w-5" />
-              Explore Startups
+              Исследовать стартапы
             </Button>
             <Link to="/submit-startup">
               <Button variant="outline" size="lg" className="gap-2 bg-card/80 backdrop-blur-sm">
                 <Plus className="h-5 w-5" />
-                Submit Your Idea
+                Отправить идею
               </Button>
             </Link>
           </div>
@@ -51,15 +50,15 @@ export const Hero = () => {
           <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border/50">
             <div>
               <div className="text-3xl font-bold text-primary">150+</div>
-              <div className="text-sm text-muted-foreground">Active Startups</div>
+              <div className="text-sm text-muted-foreground">Активные стартапы</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-primary">$2.5M</div>
-              <div className="text-sm text-muted-foreground">Total Funded</div>
+              <div className="text-sm text-muted-foreground">Всего профинансировано</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-primary">89%</div>
-              <div className="text-sm text-muted-foreground">Success Rate</div>
+              <div className="text-sm text-muted-foreground">Уровень успеха</div>
             </div>
           </div>
         </div>

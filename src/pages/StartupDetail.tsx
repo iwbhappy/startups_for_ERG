@@ -16,9 +16,9 @@ const StartupDetail = () => {
       <>
         <Navigation />
         <div className="container mx-auto px-4 py-16 text-center">
-          <h1 className="text-3xl font-bold mb-4">Startup Not Found</h1>
+          <h1 className="text-3xl font-bold mb-4">Стартап не найден</h1>
           <Link to="/">
-            <Button variant="default">Return Home</Button>
+            <Button variant="default">Вернуться на главную</Button>
           </Link>
         </div>
       </>
@@ -34,7 +34,7 @@ const StartupDetail = () => {
         <div className="container mx-auto px-4 py-8">
           <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors">
             <ArrowLeft className="h-4 w-4" />
-            Back to all startups
+            Назад ко всем стартапам
           </Link>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -67,7 +67,7 @@ const StartupDetail = () => {
               <Card className="p-6 bg-gradient-card border-border">
                 <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
                   <CheckCircle2 className="h-6 w-6 text-accent" />
-                  Key Highlights
+                  Ключевые достижения
                 </h2>
                 <ul className="space-y-3">
                   {startup.highlights.map((highlight, index) => (
@@ -83,7 +83,7 @@ const StartupDetail = () => {
 
               {/* Founder */}
               <Card className="p-6 bg-card border-border">
-                <h2 className="text-2xl font-bold mb-4">Meet the Founder</h2>
+                <h2 className="text-2xl font-bold mb-4">О основателе</h2>
                 <div className="flex items-center gap-4">
                   <div className="h-16 w-16 rounded-full bg-gradient-hero flex items-center justify-center text-2xl font-bold text-primary-foreground">
                     {startup.founder.charAt(0)}
@@ -138,10 +138,10 @@ const StartupDetail = () => {
                   <div className="space-y-3">
                     <Button variant="hero" size="lg" className="w-full gap-2">
                       <Target className="h-5 w-5" />
-                      Invest Now
+                      Инвестировать сейчас
                     </Button>
                     <Button variant="outline" size="lg" className="w-full">
-                      Contact Founder
+                      Связаться с основателем
                     </Button>
                   </div>
 
@@ -149,15 +149,15 @@ const StartupDetail = () => {
                   <div className="pt-6 border-t border-border space-y-2 text-sm text-muted-foreground">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-accent" />
-                      <span>Verified business plan</span>
+                      <span>Проверенный бизнес-план</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-accent" />
-                      <span>Legal compliance checked</span>
+                      <span>Юридическая проверка пройдена</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-accent" />
-                      <span>Founder identity verified</span>
+                      <span>Личность основателя подтверждена</span>
                     </div>
                   </div>
                 </div>

@@ -70,18 +70,18 @@ export const StartupCard = ({
         <div className="flex items-center gap-4 mb-4 text-sm">
           <div className="flex items-center gap-1 text-muted-foreground">
             <TrendingUp className="h-4 w-4" />
-            <span>{percentFunded}% funded</span>
+            <span>{percentFunded}% собрано</span>
           </div>
           <div className="flex items-center gap-1 text-muted-foreground">
             <Users className="h-4 w-4" />
-            <span>{backers} backers</span>
+            <span>{backers} инвесторов</span>
           </div>
         </div>
         
         <Link to={`/startup/${id}`} className="block">
           <Button className="w-full gap-2" variant="default">
             <Target className="h-4 w-4" />
-            View Details
+            Подробнее
           </Button>
         </Link>
       </div>
